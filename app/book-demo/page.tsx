@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react"
 
 export default function BookDemo() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-black to-zinc-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-black to-zinc-900 text-white flex flex-col">
       <header className="container mx-auto px-4 py-6">
         <div className="flex items-center gap-2">
           <Link href="/">
@@ -19,7 +19,7 @@ export default function BookDemo() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-12 flex-1">
         <Link href="/" className="inline-flex items-center text-zinc-400 hover:text-white mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to home

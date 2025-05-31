@@ -100,7 +100,7 @@ export function ScheduleStep({ onNext, isScheduled, setIsScheduled }: ScheduleSt
             disabled={!isScheduled}
             className="bg-violet-600 hover:bg-violet-700 text-white px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Next: Payment
+            Next
           </Button>
 
           <div className="text-center">

@@ -81,7 +81,7 @@ export default function StartPilot() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-black to-zinc-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-black to-zinc-900 text-white flex flex-col">
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
@@ -102,7 +102,7 @@ export default function StartPilot() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 flex-1">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">Start Your Vertex Pilot</h1>

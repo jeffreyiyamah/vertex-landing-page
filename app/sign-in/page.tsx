@@ -49,7 +49,7 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-black to-zinc-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-black to-zinc-900 text-white flex flex-col">
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
@@ -70,8 +70,8 @@ export default function SignInPage() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        <div className="max-w-md mx-auto">
+      <main className="container mx-auto px-4 py-8 flex-1 flex items-center justify-center">
+        <div className="max-w-md w-full">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-2">Welcome back</h1>
             <p className="text-zinc-400">Sign in to your Vertex account</p>
