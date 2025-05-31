@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { SignInModal } from "@/components/sign-in-modal"
+import { Check } from "lucide-react"
 
 interface ScheduleStepProps {
   onNext: () => void
@@ -15,98 +16,78 @@ export function ScheduleStep({ onNext, isScheduled, setIsScheduled }: ScheduleSt
 
   return (
     <>
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Schedule Your Onboarding Call</h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
-            Start your pilot with a 15-minute onboarding call. We'll help you upload your first logs and define success
-            metrics.
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">
+            Schedule Your Onboarding Call
+          </h2>
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+            Start your pilot with a 15-minute onboarding call. We'll help you upload your first logs and define success metrics.
           </p>
         </div>
 
-        {/* Cal.com embed mockup for pilot onboarding */}
-        <div className="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 mb-8">
-          <div className="aspect-[16/9] relative">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full max-w-4xl p-6">
-                <div className="flex flex-col md:flex-row gap-8">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-medium mb-2">Pilot Onboarding</h3>
-                    <p className="text-zinc-400 mb-4">15 minute kickoff call</p>
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-5 h-5 rounded-full bg-zinc-700"></div>
-                      <span className="text-sm text-zinc-400">Google Meet</span>
-                    </div>
-                    <div className="text-sm text-zinc-400">
-                      <p>What we'll cover:</p>
-                      <ul className="list-disc list-inside mt-2 space-y-1">
-                        <li>Connect your first log source</li>
-                        <li>Define success metrics</li>
-                        <li>Set up your first incident</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-center mb-4">
-                      <h3 className="text-lg font-medium">May 2025</h3>
-                    </div>
-                    <div className="grid grid-cols-7 gap-1 mb-6 text-center">
-                      <div className="text-xs text-zinc-500">SUN</div>
-                      <div className="text-xs text-zinc-500">MON</div>
-                      <div className="text-xs text-zinc-500">TUE</div>
-                      <div className="text-xs text-zinc-500">WED</div>
-                      <div className="text-xs text-zinc-500">THU</div>
-                      <div className="text-xs text-zinc-500">FRI</div>
-                      <div className="text-xs text-zinc-500">SAT</div>
-                    </div>
-                    <div className="flex justify-center gap-3">
-                      <div className="flex flex-col gap-3">
-                        <button
-                          className="px-4 py-2 bg-zinc-800 border border-zinc-600 rounded-md hover:bg-zinc-700 transition-colors"
-                          onClick={() => setIsScheduled(true)}
-                        >
-                          9:00am
-                        </button>
-                        <button
-                          className="px-4 py-2 bg-zinc-800 border border-zinc-600 rounded-md hover:bg-zinc-700 transition-colors"
-                          onClick={() => setIsScheduled(true)}
-                        >
-                          2:00pm
-                        </button>
-                        <button
-                          className="px-4 py-2 bg-zinc-800 border border-zinc-600 rounded-md hover:bg-zinc-700 transition-colors"
-                          onClick={() => setIsScheduled(true)}
-                        >
-                          4:30pm
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        {/* Success indicator when scheduled */}
+        {isScheduled && (
+          <div className="bg-gradient-to-br from-violet-500/20 to-violet-600/10 border border-violet-500/30 rounded-2xl p-6 backdrop-blur-sm shadow-xl mb-8">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-8 h-8 bg-gradient-to-br from-violet-500 to-violet-600 rounded-full flex items-center justify-center shadow-lg">
+                <Check className="w-5 h-5 text-white" />
               </div>
+              <span className="font-semibold text-violet-300">Successfully Scheduled!</span>
+            </div>
+            <p className="text-sm text-violet-200/80 leading-relaxed">
+              Your onboarding call is confirmed. Check your email for the calendar invite and meeting details.
+            </p>
+          </div>
+        )}
+
+        {/* Cal.com Embed - Full Width */}
+        <div className="mb-8">
+          <div className="bg-gradient-to-br from-zinc-900/60 to-zinc-900/30 border border-zinc-800/50 rounded-2xl overflow-hidden backdrop-blur-sm shadow-2xl">
+            <div className="p-1">
+              <iframe
+                src="https://cal.com/vertex-team/15min?embed=true&theme=dark"
+                width="100%"
+                height="600"
+                frameBorder="0"
+                className="rounded-xl bg-zinc-900"
+                title="Schedule Vertex Onboarding Call"
+                onLoad={() => {
+                  // Simple way to detect if user scheduled
+                  const checkScheduled = () => {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    if (urlParams.get('booking') === 'success') {
+                      setIsScheduled(true);
+                    }
+                  };
+                  
+                  setTimeout(checkScheduled, 2000);
+                }}
+              ></iframe>
             </div>
           </div>
         </div>
 
-        {isScheduled && (
-          <div className="text-center mb-6 p-4 bg-violet-500/10 border border-violet-500/20 rounded-lg">
-            <p className="text-violet-300">✓ Onboarding call scheduled for May 30, 2025 at 2:00pm</p>
-          </div>
-        )}
-
-        <div className="flex flex-col items-center gap-4">
+        {/* Action Buttons */}
+        <div className="flex flex-col items-center gap-6">
           <Button
             onClick={onNext}
             disabled={!isScheduled}
-            className="bg-violet-600 hover:bg-violet-700 text-white px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="relative bg-gradient-to-r from-violet-600 to-violet-700 hover:from-violet-700 hover:to-violet-800 text-white px-12 py-4 text-lg font-semibold rounded-xl shadow-lg shadow-violet-500/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 disabled:hover:scale-100 border border-violet-500/30"
           >
-            Next
+            <span className="relative z-10">
+              {isScheduled ? "Continue to Payment" : "Schedule Call to Continue"}
+            </span>
+            {!isScheduled && (
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-600/50 to-violet-700/50 rounded-xl animate-pulse"></div>
+            )}
           </Button>
 
+          {/* Sign in option */}
           <div className="text-center">
             <button
               onClick={() => setShowSignInModal(true)}
-              className="text-sm text-zinc-400 hover:text-white transition-colors"
+              className="text-sm text-zinc-400 hover:text-violet-300 transition-colors underline underline-offset-4 decoration-zinc-600 hover:decoration-violet-400"
             >
               Already have an account? Sign in
             </button>

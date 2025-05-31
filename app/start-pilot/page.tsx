@@ -32,7 +32,6 @@ export default function StartPilot() {
     }
   }, [])
 
-  // Save progress to localStorage
   useEffect(() => {
     localStorage.setItem("vertex-pilot-step", currentStep.toString())
     localStorage.setItem("vertex-pilot-scheduled", JSON.stringify(isScheduled))

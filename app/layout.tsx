@@ -10,7 +10,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Vertex – The Intelligence Layer for Incident Response",
+  title: "Vertex | The Intelligence Layer for Incident Response",
   description: "Reconstruct timelines. Understand threats. Respond faster.",
   generator: "Next.js",
   authors: [{ name: "Vertex" }],

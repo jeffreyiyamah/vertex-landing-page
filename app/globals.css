@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reset default margins and prevent whitespace on scroll */
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  /* Completely prevent overscroll bounce */
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  /* Force dark background */
+  background: #18181b; /* zinc-900 */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* Allow scrolling on body instead of html */
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Prevent overscroll bounce */
+  overscroll-behavior: none;
+  /* Force dark background */
+  background: #18181b; /* zinc-900 */
+  /* Additional mobile fixes */
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -88,7 +117,13 @@ body {
   * {
     @apply border-border;
   }
+  html {
+    /* Force dark background that matches the darkest part of gradient */
+    background: #18181b !important; /* zinc-900 */
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    /* Override any background and ensure dark theme */
+    background: #18181b !important; /* zinc-900 */
   }
 }

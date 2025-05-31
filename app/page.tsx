@@ -6,48 +6,53 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-black to-zinc-900 text-white flex flex-col">
-      {/* Header Navigation */}
-      <header className="container mx-auto px-4 py-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vertex-icon-j5X4RMgAhp4DxGgsa5lfsrm2gWKCZ2.png"
-            alt="Vertex Logo"
-            className="w-10 h-10"
-          />
-          <span className="font-bold text-xl">Vertex</span>
-        </div>
+      {/* Header Navigation - Truly Centered Version */}
+<header className="container mx-auto px-4 py-6 relative">
+  <div className="flex items-center justify-between">
+    {/* Logo - Left Side */}
+    <div className="flex items-center gap-3 flex-1">
+      <img
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vertex-icon-j5X4RMgAhp4DxGgsa5lfsrm2gWKCZ2.png"
+        alt="Vertex Logo"
+        className="w-10 h-10"
+      />
+      <span className="text-xl">Vertex</span>
+    </div>
 
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-            Platform
-          </Link>
-          <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-            Integrations
-          </Link>
-          <Link href="/pricing" className="text-sm text-zinc-300 hover:text-white transition-colors">
-            Pricing
-          </Link>
-          <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-            Resources
-          </Link>
-        </nav>
+    {/* Navigation - Absolutely Centered */}
+    <nav className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
+      <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
+        Platform
+      </Link>
+      <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
+        Integrations
+      </Link>
+      <Link href="/pricing" className="text-sm text-zinc-300 hover:text-white transition-colors">
+        Pricing
+      </Link>
+      <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
+        Resources
+      </Link>
+    </nav>
 
-        <div className="flex items-center gap-4">
-          <Link href="/book-demo">
-            <Button
-              variant="outline"
-              className="hidden sm:flex text-sm bg-black border-white text-white hover:bg-zinc-800"
-            >
-              Book Demo
-            </Button>
-          </Link>
-          <Link href="/sign-in">
-            <Button variant="ghost" className="text-sm text-zinc-300 hover:text-white">
-              Get Started <ArrowRight className="ml-1 h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
-      </header>
+    {/* Buttons - Right Side */}
+    <div className="flex items-center gap-4 flex-1 justify-end">
+      <Link href="/book-demo">
+        <Button
+          variant="outline"
+          className="hidden sm:flex text-sm bg-black border-white text-white hover:bg-zinc-800"
+        >
+          Book Demo
+        </Button>
+      </Link>
+      <Link href="/sign-in">
+        <Button variant="ghost" className="text-sm text-zinc-300 hover:text-white">
+          Get Started <ArrowRight className="ml-1 h-4 w-4" />
+        </Button>
+      </Link>
+    </div>
+  </div>
+</header>
 
       <div className="flex-1">
         {/* Hero Section */}
@@ -229,13 +234,13 @@ export default function Home() {
         <section className="container mx-auto px-4 py-16 border-t border-zinc-800">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl font-bold mb-6">Contact Us</h2>
-            <p className="text-zinc-400 mb-8">Have questions or want to learn more? Our team is here to help.</p>
+            <p className="text-zinc-400 mb-8">Dealing with slow security incident response? Let me show you how Vertex can help.</p>
             <a
-              href="mailto:founders@tryvertex.dev"
+              href="mailto:jeff@tryvertex.dev"
               className="inline-flex items-center gap-2 text-zinc-300 hover:text-white transition-colors"
             >
               <Mail className="h-5 w-5" />
-              founders@tryvertex.dev
+              jeff@tryvertex.dev
             </a>
           </div>
         </section>
@@ -245,7 +250,12 @@ export default function Home() {
       <footer className="container mx-auto px-4 py-12 border-t border-zinc-800 mt-auto">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
-            <span className="font-bold text-lg">Vertex</span>
+            <img
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vertex-icon-j5X4RMgAhp4DxGgsa5lfsrm2gWKCZ2.png"
+        alt="Vertex Logo"
+        className="w-10 h-10"
+      />
+      <span className=" text-xl">Vertex</span>
           </div>
           <div className="flex gap-6 text-sm text-zinc-500">
             <Link href="#" className="hover:text-white transition-colors">
