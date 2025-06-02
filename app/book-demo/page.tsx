@@ -2,10 +2,11 @@
 
 import Link from "next/link"
 import { ArrowLeft, Sparkles, Check } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 
-export default function BookDemo() {
+// Separate component that uses useSearchParams
+function BookDemoContent() {
   const [showSuccessOverlay, setShowSuccessOverlay] = useState(false)
   const [countdown, setCountdown] = useState(3)
   const router = useRouter()
@@ -167,5 +168,74 @@ export default function BookDemo() {
         </div>
       </main>
     </div>
+  )
+}
+
+// Loading fallback component
+function BookDemoLoading() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-black via-black to-zinc-900 text-white flex flex-col">
+      <header className="container mx-auto px-4 py-6">
+        <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-3">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vertex-icon-j5X4RMgAhp4DxGgsa5lfsrm2gWKCZ2.png"
+              alt="Vertex Logo"
+              className="w-10 h-10"
+            />
+            <span className="font-bold text-xl">Vertex</span>
+          </Link>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-4 py-12 flex-1">
+        <Link href="/" className="inline-flex items-center text-zinc-400 hover:text-white mb-8">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to home
+        </Link>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-violet-500/10 border border-violet-500/20 rounded-full text-violet-300 text-sm mb-6">
+              <Sparkles className="w-4 h-4" />
+              Schedule a Demo
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              See Vertex in Action
+            </h1>
+            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+              Schedule a personalized demo with our team to see how Vertex can transform your security operations.
+            </p>
+          </div>
+
+          {/* Loading skeleton */}
+          <div className="bg-zinc-900/20 border border-zinc-800/50 rounded-3xl overflow-hidden backdrop-blur-sm shadow-2xl mb-8">
+            <div className="p-8">
+              <div className="animate-pulse space-y-4">
+                <div className="h-4 bg-zinc-700 rounded w-1/4"></div>
+                <div className="h-8 bg-zinc-700 rounded w-1/2"></div>
+                <div className="h-4 bg-zinc-700 rounded w-3/4"></div>
+                <div className="h-64 bg-zinc-700 rounded"></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <p className="text-sm text-zinc-500">
+              Loading calendar...
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+  )
+}
+
+// Main component wrapped in Suspense
+export default function BookDemo() {
+  return (
+    <Suspense fallback={<BookDemoLoading />}>
+      <BookDemoContent />
+    </Suspense>
   )
 }
