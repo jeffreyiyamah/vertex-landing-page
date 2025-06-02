@@ -62,7 +62,7 @@ export default function Home() {
               NEW: Integration with CloudTrail Event Logs →
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-              Your Security Brain for Incident Response
+              Your Security Copilot for Incident Response
             </h1>
             <p className="text-xl md:text-2xl text-zinc-400 mb-6">
               Intelligence that grows smarter with every incident
