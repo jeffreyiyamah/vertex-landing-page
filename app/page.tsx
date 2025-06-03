@@ -62,10 +62,13 @@ export default function Home() {
               NEW: Integration with CloudTrail Event Logs →
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-              Your Security Copilot for Incident Response
+              Stop Manually Digging Through Security Logs
             </h1>
-            <p className="text-xl md:text-2xl text-zinc-400 mb-6">
+            {/* <p className="text-xl md:text-2xl text-zinc-400 mb-6">
               Intelligence that grows smarter with every incident
+            </p> */}
+            <p className="text-xl md:text-2xl text-zinc-400 mb-6">
+              Get automated incident analysis in minutes, not hours
             </p>
             <p className="text-zinc-400 mb-10 max-w-2xl mx-auto">
               Instantly know what happened, when, and why — without a SOC or SIEM. Your logs. Our brain. Real answers.
@@ -128,7 +131,7 @@ export default function Home() {
         </section>
 
         {/* FAQ Section */}
-        <section className="container mx-auto px-4 py-16 border-t border-zinc-800">
+        {/* <section className="container mx-auto px-4 py-16 border-t border-zinc-800">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
 
@@ -190,7 +193,7 @@ export default function Home() {
               </AccordionItem>
             </Accordion>
           </div>
-        </section>
+        </section> */}
 
         {/* Social Proof */}
         <section className="container mx-auto px-4 py-16 border-t border-zinc-800">
