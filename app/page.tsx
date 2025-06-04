@@ -21,18 +21,18 @@ export default function Home() {
 
     {/* Navigation - Absolutely Centered */}
     <nav className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
-      <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
+      <Link href="/" className="text-sm text-zinc-300 hover:text-white transition-colors">
         Platform
       </Link>
-      <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
+      {/* <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
         Integrations
-      </Link>
+      </Link> */}
       <Link href="/pricing" className="text-sm text-zinc-300 hover:text-white transition-colors">
         Pricing
       </Link>
-      <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
+      {/* <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
         Resources
-      </Link>
+      </Link> */}
     </nav>
 
     {/* Buttons - Right Side */}
@@ -198,7 +198,7 @@ export default function Home() {
         {/* Social Proof */}
         <section className="container mx-auto px-4 py-16 border-t border-zinc-800">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-12">Trusted by security teams at</h2>
+            <h2 className="text-2xl font-bold mb-12"></h2>
             <div className="grid grid-cols-1 md:grid-cols-1 gap-8 items-center">
               {/* Twitch Logo */}
               <div className="flex items-center justify-center">

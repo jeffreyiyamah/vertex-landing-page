@@ -20,20 +20,15 @@ export default function PricingPage() {
           </Link>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-            Platform
-          </Link>
-          <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-            Integrations
-          </Link>
-          <Link href="/pricing" className="text-sm text-white hover:text-white transition-colors">
-            Pricing
-          </Link>
-          <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-            Resources
-          </Link>
-        </nav>
+       {/* Navigation - Centered between logo and buttons */}
+      <nav className="hidden md:flex items-center gap-8 flex-1 justify-center">
+        <Link href="/" className="text-sm text-zinc-300 hover:text-white transition-colors">
+          Platform
+        </Link>
+        <Link href="/pricing" className="text-sm text-zinc-300 hover:text-white transition-colors">
+          Pricing
+        </Link>
+      </nav>
 
         <div className="flex items-center gap-4">
           <Link href="/book-demo">
