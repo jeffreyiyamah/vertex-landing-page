@@ -19,21 +19,15 @@ export default function Home() {
       <span className="text-xl">Vertex</span>
     </div>
 
-    {/* Navigation - Absolutely Centered */}
-    <nav className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
-      <Link href="/" className="text-sm text-zinc-300 hover:text-white transition-colors">
-        Platform
-      </Link>
-      {/* <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-        Integrations
-      </Link> */}
-      <Link href="/pricing" className="text-sm text-zinc-300 hover:text-white transition-colors">
-        Pricing
-      </Link>
-      {/* <Link href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-        Resources
-      </Link> */}
-    </nav>
+   {/* Navigation - Centered between logo and buttons */}
+      <nav className="hidden md:flex items-center gap-8 flex-1 justify-center">
+        <Link href="/" className="text-sm text-zinc-300 hover:text-white transition-colors">
+          Platform
+        </Link>
+        <Link href="/pricing" className="text-sm text-zinc-300 hover:text-white transition-colors">
+          Pricing
+        </Link>
+      </nav>
 
     {/* Buttons - Right Side */}
     <div className="flex items-center gap-4 flex-1 justify-end">
