@@ -192,7 +192,7 @@ export default function Home() {
         {/* Social Proof */}
         <section className="container mx-auto px-4 py-16 border-t border-zinc-800">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-12">Security-tested with engineers from</h2>
+            <h2 className="text-2xl font-bold mb-12">Security-tested by engineers at</h2>
             <div className="grid grid-cols-1 md:grid-cols-1 gap-8 items-center">
               {/* Twitch Logo */}
               <div className="flex items-center justify-center">
